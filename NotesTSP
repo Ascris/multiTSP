@@ -1,0 +1,26 @@
+2) lire les fichiers d'instance et stocker les valeurs dans une matrice de distances (distances entre chaque ville et les autres)
+
+3)
+Filtrage :
+probleme de minimisation donc les points dominants sont plutôt vers l'origine pour les fonctions f1 et f2
+
+Algo PLS :
+operateur de voisinage (pour le TSP)
+	-> changer l'ordre de visite des villes (permutation de 2 villes)
+
+Générer des voisins :
+	-> quand une solution ne génère que des voisins moins bons, je la marque pour ne plus appliquer l'objectif sur cette dernière.
+
+2 fichiers a enregistrer en meme temps
+	-> de moins en moins de solutions car on ne garde que les dominants
+
+graphique gnuplot
+	ex : plot fic1 fic2
+
+Création fichier plot:
+	set term jpeg
+	set output 'filtre500KroAB.jpg'
+	plot 'offline500_KroAB.txt' offlinePareto500_KroAB.txt
+
+Dans le terminal :
+	gnuplot filtre.plot
