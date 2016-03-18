@@ -9,6 +9,7 @@
 #include "Ville.h"
 #include "Megalopole.h"
 #include "chargementMegalopole.h"
+#include "remplissageMatrice.h"
 
 using namespace std;
 
@@ -18,9 +19,14 @@ int main(int argc, char **argv) {
     Megalopole megalopolis;
     chargementMegalopole loadMegalopole(fichierData, megalopolis);
     
+    remplissageMatrice matriceDistance(megalopolis);
+    
     //affichage des villes
     cout << "Affichage villes" << endl;
     cout << megalopolis << endl;
 
+    //affichage matrice de distances
+    matriceDistance.affichage();
+    
     return 0;
 }

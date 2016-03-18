@@ -1,4 +1,4 @@
-# Install script for directory: /home/etudiant/Bureau/TravailMaison/S2/OptimisationCombinatoire/multiTSP
+# Install script for directory: /home/etudiant/git/multiTSP
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/multitsp"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/etudiant/Bureau/TravailMaison/S2/OptimisationCombinatoire/multiTSP/build/multitsp")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/etudiant/git/multiTSP/build2/multitsp")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/multitsp" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/multitsp")
     IF(CMAKE_INSTALL_DO_STRIP)
@@ -54,7 +54,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/etudiant/Bureau/TravailMaison/S2/OptimisationCombinatoire/multiTSP/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/etudiant/git/multiTSP/build2/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/etudiant/Bureau/TravailMaison/S2/OptimisationCombinatoire/multiTSP/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/etudiant/git/multiTSP/build2/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)
