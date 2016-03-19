@@ -24,6 +24,25 @@ int main(int argc, char **argv) {
     remplissageMatrice matriceDistanceA100(megalopolisA);
     remplissageMatrice matriceDistanceB100(megalopolisB);
     
+    vector<int> indice_villes;
+    for(unsigned int i= 0; i < megalopolisA.get_villes().size(); ++i){
+	indice_villes.push_back(i);
+    }
+    double coutCheminA= matriceDistanceA100.computePath(indice_villes);
+    cout << "Le chemin de taille " << indice_villes.size() << " coute : " << coutCheminA << endl;
+    
+    double best_path= coutCheminA;
+    for(unsigned int k= 1; k < indice_villes.size(); ++k){
+	for(unsigned int l= 1; k < indice_villes.size(); ++l){
+	    matriceDistanceA100.swapVilles(indice_villes, k, l);
+	    if(best_path < matriceDistanceA100.computePath(indice_villes)){
+		
+	    };
+	}
+    }
+    
+    coutCheminA= matriceDistanceA100.computePath(indice_villes);
+    cout << "Nouveau chemin de taille " << indice_villes.size() << " coute : " << coutCheminA << endl;
     
     
     return 0;

@@ -44,11 +44,6 @@ remplissageMatrice::remplissageMatrice(const Megalopole& megalopolis)
     }
 }
 
-double remplissageMatrice::getDistance(int i, int j) const
-{
-    return distance[i][j];
-}
-
 void remplissageMatrice::affichage()
 {
     for(int i= 0; i<nb_elem; ++i){
@@ -57,4 +52,21 @@ void remplissageMatrice::affichage()
 	}
 	cout << endl;
     }
+}
+
+double remplissageMatrice::computePath(vector< int > villes_ordonnees)
+{
+    double res= 0.0;
+    for(unsigned int i= 0; i < villes_ordonnees.size()-1; ++i){
+	res += distance[villes_ordonnees[i]][villes_ordonnees[i+1]];
+    }
+    
+    return res;
+}
+
+void remplissageMatrice::swapVilles(vector< int >& villes, int ville1, int ville2)
+{
+    int tmp= villes[ville1];
+    villes[ville1]= villes[ville2];
+    villes[ville2]= tmp;
 }
