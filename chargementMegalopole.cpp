@@ -30,7 +30,6 @@ chargementMegalopole::chargementMegalopole(std::string fichierData, Megalopole& 
     ifstream fichier(fichierData);
     if(fichier)
     {
-	cout << "Debut fichier" << endl;
 	string ligne;
 	int nbLignes = 0;
 	bool get_cities= false;

@@ -15,18 +15,16 @@ using namespace std;
 
 int main(int argc, char **argv) {
     
-    string fichierData= "../instances_TSP/kroA100.tsp";
-    Megalopole megalopolis;
-    chargementMegalopole loadMegalopole(fichierData, megalopolis);
+    string fichierDataA= "../instances_TSP/kroA100.tsp";
+    string fichierDataB= "../instances_TSP/kroB100.tsp";
+    Megalopole megalopolisA, megalopolisB;
+    chargementMegalopole loadMegalopoleA(fichierDataA, megalopolisA);
+    chargementMegalopole loadMegalopoleB(fichierDataB, megalopolisB);
     
-    remplissageMatrice matriceDistance(megalopolis);
+    remplissageMatrice matriceDistanceA100(megalopolisA);
+    remplissageMatrice matriceDistanceB100(megalopolisB);
     
-    //affichage des villes
-    cout << "Affichage villes" << endl;
-    cout << megalopolis << endl;
-
-    //affichage matrice de distances
-    matriceDistance.affichage();
+    
     
     return 0;
 }
