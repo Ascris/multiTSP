@@ -25,8 +25,7 @@ public:
     void affichage();
     
     //fonctions de calcul sur la matrice
-    double computePath(std::vector<int> villes_ordonnees);
-    void swapVilles(std::vector<int>& villes, int ville1, int ville2);
+    double evaluationCout(std::vector<int> villes_ordonnees);
     
 };
 

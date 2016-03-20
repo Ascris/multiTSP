@@ -54,7 +54,7 @@ void remplissageMatrice::affichage()
     }
 }
 
-double remplissageMatrice::computePath(vector< int > villes_ordonnees)
+double remplissageMatrice::evaluationCout(vector< int > villes_ordonnees)
 {
     double res= 0.0;
     for(unsigned int i= 0; i < villes_ordonnees.size()-1; ++i){
@@ -62,11 +62,4 @@ double remplissageMatrice::computePath(vector< int > villes_ordonnees)
     }
     
     return res;
-}
-
-void remplissageMatrice::swapVilles(vector< int >& villes, int ville1, int ville2)
-{
-    int tmp= villes[ville1];
-    villes[ville1]= villes[ville2];
-    villes[ville2]= tmp;
 }

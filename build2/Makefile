@@ -153,6 +153,21 @@ multitsp/fast:
 .PHONY : multitsp/fast
 
 # target to build an object file
+Chemin.o:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Chemin.o
+.PHONY : Chemin.o
+
+# target to preprocess a source file
+Chemin.i:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Chemin.i
+.PHONY : Chemin.i
+
+# target to generate assembly for a file
+Chemin.s:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Chemin.s
+.PHONY : Chemin.s
+
+# target to build an object file
 Megalopole.o:
 	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Megalopole.o
 .PHONY : Megalopole.o
@@ -168,6 +183,21 @@ Megalopole.s:
 .PHONY : Megalopole.s
 
 # target to build an object file
+Solution.o:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Solution.o
+.PHONY : Solution.o
+
+# target to preprocess a source file
+Solution.i:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Solution.i
+.PHONY : Solution.i
+
+# target to generate assembly for a file
+Solution.s:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Solution.s
+.PHONY : Solution.s
+
+# target to build an object file
 Ville.o:
 	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Ville.o
 .PHONY : Ville.o
@@ -181,6 +211,21 @@ Ville.i:
 Ville.s:
 	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Ville.s
 .PHONY : Ville.s
+
+# target to build an object file
+champSolution.o:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/champSolution.o
+.PHONY : champSolution.o
+
+# target to preprocess a source file
+champSolution.i:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/champSolution.i
+.PHONY : champSolution.i
+
+# target to generate assembly for a file
+champSolution.s:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/champSolution.s
+.PHONY : champSolution.s
 
 # target to build an object file
 chargementMegalopole.o:
@@ -240,12 +285,21 @@ help:
 	@echo "... list_install_components"
 	@echo "... multitsp"
 	@echo "... rebuild_cache"
+	@echo "... Chemin.o"
+	@echo "... Chemin.i"
+	@echo "... Chemin.s"
 	@echo "... Megalopole.o"
 	@echo "... Megalopole.i"
 	@echo "... Megalopole.s"
+	@echo "... Solution.o"
+	@echo "... Solution.i"
+	@echo "... Solution.s"
 	@echo "... Ville.o"
 	@echo "... Ville.i"
 	@echo "... Ville.s"
+	@echo "... champSolution.o"
+	@echo "... champSolution.i"
+	@echo "... champSolution.s"
 	@echo "... chargementMegalopole.o"
 	@echo "... chargementMegalopole.i"
 	@echo "... chargementMegalopole.s"
