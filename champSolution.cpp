@@ -41,24 +41,58 @@ Solution champSolution::getBestSolution() const
     return tmp_best_sol;
 }
 
-bool champSolution::isDominating(const Solution& sol)
+bool champSolution::dominationSol(const Solution& sol1, const Solution& sol2, bool maxA, bool maxB)
+{
+    if(0 == maxA) //on veut minimiser l'objectif A
+    {
+	if(0 == maxB)//on veut minimiser l'objectif B
+	{
+	    return (sol1.get_objA() < sol2.get_objA() && sol1.get_objB() < sol2.get_objB());
+	} else //on veut maximiser l'objectif B
+	{
+	    return (sol1.get_objA() < sol2.get_objA() && sol1.get_objB() > sol2.get_objB());
+	}
+    } else //on veut maximiser l'objectif A
+    {
+	if(0 == maxB) //on veut minimiser l'objectif B
+	{
+	    return (sol1.get_objA() > sol2.get_objA() && sol1.get_objB() < sol2.get_objB());
+	} else //on veut maximiser l'objectif B
+	{
+	    return (sol1.get_objA() > sol2.get_objA() && sol1.get_objB() > sol2.get_objB());
+	}
+    }
+}
+
+bool champSolution::dominationComplete(const Solution& sol, bool maxA, bool maxB)
 {
     bool res= true;
     for(unsigned int i= 0; i < champ_solutions.size(); ++i){
-	if(champ_solutions[i].get_objA() > sol.get_objA()) return false;
-	if(champ_solutions[i].get_objB() > sol.get_objB()) return false;
+	//si ne serait-ce qu'une solution du champ des solution domine complètement "sol", sol n'est pas dominante
+	if(dominationSol(champ_solutions[i], sol, maxA, maxB)) return false;
     }
+    
     return res;
 }
 
-void champSolution::supprAllWeakSolutions()
+bool champSolution::areIncomparable(const Solution& sol1, const Solution& sol2)
 {
-    for(unsigned int i= 0; i < champ_solutions.size(); ++i){
-	if(!isDominating(champ_solutions[i])){
-	    champ_solutions.erase(champ_solutions.begin()+i);
-	    cout << "Suppression du faible : " << champ_solutions[i] << endl;
+    return (((sol1.get_objA() > sol2.get_objA()) && (sol1.get_objB() < sol2.get_objB())) || 
+	    ((sol1.get_objA() < sol2.get_objA()) && (sol1.get_objB() > sol2.get_objB())));
+}
+
+vector< Solution > champSolution::getFront(bool maxA, bool maxB)
+{
+    vector<Solution>::iterator it;
+    vector<Solution> front;
+    for(it= champ_solutions.begin(); it != champ_solutions.end(); ++it){
+	if(dominationComplete(*it, maxA, maxB)){
+	    front.push_back(*it);
+	} else {
+	    
 	}
     }
+    return front;
 }
 
 

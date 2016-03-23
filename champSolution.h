@@ -39,11 +39,21 @@ public:
     //retourne la solution ayant le meilleur objectif
     Solution getBestSolution() const;
     
-    //retourne true si la solution est dominante
-    bool isDominating(const Solution& sol);
+    //retourne vrai si la solution 1 domine la solution 2 selon les criteres maxA et maxB
+    bool dominationSol(const Solution& sol1, const Solution& sol2, bool maxA, bool maxB);
+    //retourne vrai si la solution 1 est dominante dans champ_solutions selon les criteres maxA et maxB 
+    bool dominationComplete(const Solution& sol, bool maxA, bool maxB);
     
-    //ne garde que les solutions dominantes dans le champ des solutions
-    void supprAllWeakSolutions();
+    //retourne vrai si la sol1 domine sol2
+    bool dominateStrong(const Solution& sol1, const Solution& sol2);
+    bool areIncomparable(const Solution& sol1, const Solution& sol2);
+    /**
+     * Retourne les solutions dominantes
+     * @param maxA: si 1, maximise l'objectif A, sinon le minimise
+     * @param maxB: si 1, maximise l'objectif B, sinon le minimise
+     * @return un vecteur de solutions dominantes
+     */
+    std::vector<Solution> getFront(bool maxA, bool maxB);
     
     
     

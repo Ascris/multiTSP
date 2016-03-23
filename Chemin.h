@@ -34,6 +34,8 @@ public:
     Chemin(int taille);
     
     std::vector<int> getChemin() const { return path; };
+    int get_extremite_A() const { return path[0]; };
+    int get_extremite_B() const { return path[path.size()-1]; };
     
     //operations sur le chemin a parcourir
     void swap_step(int step1, int step2);

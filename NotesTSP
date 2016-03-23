@@ -9,7 +9,7 @@ operateur de voisinage (pour le TSP)
 	-> changer l'ordre de visite des villes (permutation de 2 villes)
 
 Générer des voisins :
-	-> quand une solution ne génère que des voisins moins bons, je la marque pour ne plus appliquer l'objectif sur cette dernière.
+	-> "quand une solution ne génère que des voisins moins bons, je la marque pour ne plus appliquer l'objectif sur cette dernière."
 
 2 fichiers a enregistrer en meme temps
 	-> de moins en moins de solutions car on ne garde que les dominants

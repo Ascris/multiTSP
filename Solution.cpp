@@ -20,20 +20,20 @@
 using namespace std;
 
 Solution::Solution()
-    :objA(0), objB(0), obj(0)
+    :objA(0), objB(0)
 {
 
 }
 
-Solution::Solution(double obja, double objb)
-    :objA(obja), objB(objb), obj(obja+objb)
+Solution::Solution(double obja, double objb, std::vector<int> path)
+    :objA(obja), objB(objb), path(path)
 {
 
 }
 
 std::ostream& Solution::print(std::ostream& out) const
 {
-    out << "(" << objA << " ; " << objB << ") = " << obj;
+    out << "(" << objA << " ; " << objB << ")";
     
     return out;
 }
