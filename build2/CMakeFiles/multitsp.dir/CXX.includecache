@@ -15,6 +15,8 @@ vector
 -
 time.h
 -
+algorithm
+-
 
 /home/etudiant/git/multiTSP/Megalopole.h
 vector
@@ -31,10 +33,6 @@ vector
 /home/etudiant/git/multiTSP/Ville.h
 ostream
 -
-
-/home/etudiant/git/multiTSP/champSolution.cpp
-champSolution.h
-/home/etudiant/git/multiTSP/champSolution.h
 
 /home/etudiant/git/multiTSP/champSolution.h
 vector

@@ -36,6 +36,8 @@ Chemin::Chemin(int taille)
     }
 }
 
+
+
 void Chemin::swap_step(int step1, int step2)
 {
     int tmp= path[step1];
@@ -44,9 +46,32 @@ void Chemin::swap_step(int step1, int step2)
     
 }
 
+bool Chemin::isOnTheWay(int ville)
+{
+    return (std::find(path.begin(), path.end(), ville) != path.end());
+}
+
+
+void Chemin::swap_cities(int ville1, int ville2)
+{
+    int ind_v1= -1, ind_v2= -1;
+    if(isOnTheWay(ville1) && isOnTheWay(ville2)) //les villes sont bien sur le chemin
+    {
+	for(unsigned int i= 0; i < path.size(); ++i){
+	    if(ville1 == path[i]) ind_v1= i;
+	    if(ville2 == path[i]) ind_v2= i;
+	}
+	swap_step(ind_v1, ind_v2);
+	
+    } else {
+	std::cerr << "Erreur : " << ville1 << " ou " << ville2 << " n'est pas presente dans le chemin !" << std::endl;
+    }
+}
+
+
 void Chemin::random_swap_step()
 {
     int rand_step_1= rand() % path.size() + 1;
-    int rand_step_2= rand() % path.size() +1;
+    int rand_step_2= rand() % path.size() + 1;
     swap_step(rand_step_1, rand_step_2);
 }

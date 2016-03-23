@@ -22,6 +22,7 @@
 #include <iostream>
 #include <vector>
 #include <time.h>
+#include <algorithm>
 
 class Chemin
 {
@@ -37,9 +38,17 @@ public:
     int get_extremite_A() const { return path[0]; };
     int get_extremite_B() const { return path[path.size()-1]; };
     
+    //retourne vrai si la ville se trouve sur le chemin
+    bool isOnTheWay(int ville);
+    
     //operations sur le chemin a parcourir
     void swap_step(int step1, int step2);
+    //echange les places de deux villes dans le chemin
+    void swap_cities(int ville1, int ville2);
+    
+    //echange deux villes au hasard dans le chemin
     void random_swap_step();
+    
 };
 
 #endif // CHEMIN_H
