@@ -49,6 +49,11 @@ public:
     //echange deux villes au hasard dans le chemin
     void random_swap_step();
     
+    
+    std::ostream& print(std::ostream& out) const;
+    
+    friend std::ostream& operator<<(std::ostream& out, const Chemin& c)
+    { return c.print(out); }
 };
 
 #endif // CHEMIN_H

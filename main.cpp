@@ -35,8 +35,8 @@ int main(int argc, char **argv) {
     cout << "Solution (A ; B) = (" << coutCheminA << " ; " << coutCheminB << ") = " << coutCheminA+coutCheminB << endl;
     
     int nb_swap= 500;
-    for(int i_ville1= 0; i_ville1 < tailleA; ++i_ville1){
-	for(int i_ville2= i_ville1; (i_ville2 < tailleA) && (i_ville2 < nb_swap); ++i_ville2){
+    for(int i_ville1= 1; i_ville1 < tailleA; ++i_ville1){
+	for(int i_ville2= i_ville1+1; (i_ville2 < tailleA) && (i_ville2 < nb_swap); ++i_ville2){
 	    testPath.swap_cities(i_ville1, i_ville2);
 	    coutCheminA= matriceDistanceA100.evaluationCout(testPath.getChemin());
 	    coutCheminB= matriceDistanceB100.evaluationCout(testPath.getChemin());

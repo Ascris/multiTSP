@@ -9,12 +9,14 @@ CMakeFiles/multitsp.dir/Megalopole.o
  /home/etudiant/git/multiTSP/Megalopole.h
  /home/etudiant/git/multiTSP/Ville.h
 CMakeFiles/multitsp.dir/Solution.o
+ /home/etudiant/git/multiTSP/Chemin.h
  /home/etudiant/git/multiTSP/Solution.cpp
  /home/etudiant/git/multiTSP/Solution.h
 CMakeFiles/multitsp.dir/Ville.o
  /home/etudiant/git/multiTSP/Ville.cpp
  /home/etudiant/git/multiTSP/Ville.h
 CMakeFiles/multitsp.dir/champSolution.o
+ /home/etudiant/git/multiTSP/Chemin.h
  /home/etudiant/git/multiTSP/Solution.h
  /home/etudiant/git/multiTSP/champSolution.cpp
  /home/etudiant/git/multiTSP/champSolution.h

@@ -21,21 +21,23 @@
 #include <ostream>
 #include <vector>
 
+#include "Chemin.h"
+
 class Solution
 {
 private:
-    std::vector<int> path;
-    double objB;
     double objA;
+    double objB;
+    Chemin path;
 
 public:
     Solution();
-    Solution(double obja, double objb, std::vector<int> path);
+    Solution(double obja, double objb, Chemin path);
     
     double get_objA() const { return objA; };
     double get_objB() const { return objB; };
     double get_obj() const { return objA+objB; };
-    std::vector<int> get_path() { return path; };
+    Chemin get_path() const { return path; };
     
     std::ostream& print(std::ostream& out) const;
 

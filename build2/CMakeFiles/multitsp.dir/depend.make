@@ -8,12 +8,14 @@ CMakeFiles/multitsp.dir/Megalopole.o: ../Megalopole.cpp
 CMakeFiles/multitsp.dir/Megalopole.o: ../Megalopole.h
 CMakeFiles/multitsp.dir/Megalopole.o: ../Ville.h
 
+CMakeFiles/multitsp.dir/Solution.o: ../Chemin.h
 CMakeFiles/multitsp.dir/Solution.o: ../Solution.cpp
 CMakeFiles/multitsp.dir/Solution.o: ../Solution.h
 
 CMakeFiles/multitsp.dir/Ville.o: ../Ville.cpp
 CMakeFiles/multitsp.dir/Ville.o: ../Ville.h
 
+CMakeFiles/multitsp.dir/champSolution.o: ../Chemin.h
 CMakeFiles/multitsp.dir/champSolution.o: ../Solution.h
 CMakeFiles/multitsp.dir/champSolution.o: ../champSolution.cpp
 CMakeFiles/multitsp.dir/champSolution.o: ../champSolution.h

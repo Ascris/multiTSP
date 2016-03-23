@@ -41,19 +41,18 @@ public:
     
 
     /**************************
-    * FONCTIONS DE DOMINATION
-    ************************/
+    * FONCTIONS DE DOMINATION *
+    **************************/
     
     //retourne vrai si la solution 1 domine la solution 2 selon les criteres maxA et maxB
     bool dominationSol(const Solution& sol1, const Solution& sol2, bool maxA, bool maxB);
     //retourne vrai si la solution 1 est dominante dans champ_solutions selon les criteres maxA et maxB 
     bool dominationComplete(const Solution& sol, bool maxA, bool maxB);
 
-    //retourne vrai si la sol1 domine sol2
-    bool dominateStrong(const Solution& sol1, const Solution& sol2);
     bool areIncomparable(const Solution& sol1, const Solution& sol2);
     /**
-     * Retourne les solutions dominantes
+     * Retourne les solutions dominantes suivant les objectifs A et B
+     * (strategie off_line)
      * @param maxA: si 1, maximise l'objectif A, sinon le minimise
      * @param maxB: si 1, maximise l'objectif B, sinon le minimise
      * @return un vecteur de solutions dominantes
@@ -61,7 +60,20 @@ public:
     std::vector<Solution> getFront(bool maxA, bool maxB);
     
     
+    //supprimer de supprAllWeaks toutes les solutions dominees selon les criteres maxA et maxB
+    std::vector<Solution> supprAllWeaks(bool maxA, bool maxB);
     
+    /*
+     * Retourne vrai si la solution "sol" est dominee par le nuage de solutions "ens_sol"
+     */
+    bool wouldBeDominated(const std::vector<Solution>& ens_sol, const Solution& sol, int maxA, int maxB);
+    
+    //strategie on-line
+    std::vector<Solution> buildingFront(bool maxA, bool maxB);
+    
+    /**************************
+    * FONCTIONS D'AFFICHAGE *
+    **************************/
     
     //fonctions d'affichage
     std::ostream& print(std::ostream& out) const;

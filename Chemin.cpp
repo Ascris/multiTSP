@@ -75,3 +75,12 @@ void Chemin::random_swap_step()
     int rand_step_2= rand() % path.size() + 1;
     swap_step(rand_step_1, rand_step_2);
 }
+
+std::ostream& Chemin::print(std::ostream& out) const
+{
+    for(unsigned int i= 0; i < path.size(); ++i){
+	out << path[i] << " ";
+    }
+    return out;
+}
+

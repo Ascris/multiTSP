@@ -25,11 +25,12 @@ Solution::Solution()
 
 }
 
-Solution::Solution(double obja, double objb, std::vector<int> path)
-    :objA(obja), objB(objb), path(path)
+Solution::Solution(double obja, double objb, Chemin path)
+    :objA(obja), objB(objb), path(path.getChemin())
 {
-
+    
 }
+
 
 std::ostream& Solution::print(std::ostream& out) const
 {
