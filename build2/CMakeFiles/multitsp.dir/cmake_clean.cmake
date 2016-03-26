@@ -1,4 +1,6 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/multitsp.dir/algorithm.o"
+  "CMakeFiles/multitsp.dir/ecritureFichier.o"
   "CMakeFiles/multitsp.dir/champSolution.o"
   "CMakeFiles/multitsp.dir/Solution.o"
   "CMakeFiles/multitsp.dir/Chemin.o"

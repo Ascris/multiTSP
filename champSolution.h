@@ -50,6 +50,7 @@ public:
     bool dominationComplete(const Solution& sol, bool maxA, bool maxB);
 
     bool areIncomparable(const Solution& sol1, const Solution& sol2);
+    
     /**
      * Retourne les solutions dominantes suivant les objectifs A et B
      * (strategie off_line)
@@ -59,9 +60,8 @@ public:
      */
     std::vector<Solution> getFront(bool maxA, bool maxB);
     
-    
     //supprimer de supprAllWeaks toutes les solutions dominees selon les criteres maxA et maxB
-    std::vector<Solution> supprAllWeaks(bool maxA, bool maxB);
+    std::vector<Solution> addSolSupprAllWeaks(std::vector<Solution> front, const Solution& sol, bool maxA, bool maxB);
     
     /*
      * Retourne vrai si la solution "sol" est dominee par le nuage de solutions "ens_sol"

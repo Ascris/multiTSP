@@ -95,10 +95,17 @@ vector< Solution > champSolution::getFront(bool maxA, bool maxB)
     return front;
 }
 
-std::vector<Solution> champSolution::supprAllWeaks(bool maxA, bool maxB)
+std::vector<Solution> champSolution::addSolSupprAllWeaks(vector<Solution> front, const Solution& sol, bool maxA, bool maxB)
 {
     std::vector<Solution> res;
-    
+    for(unsigned int i= 0; i < front.size(); ++i){
+	if(dominationSol(sol, front[i], maxA, maxB)){
+// 	    solution dominee, pas d'ajout
+	} else {
+	    res.push_back(front[i]);
+	}
+    }
+    res.push_back(sol);
     
     return res;
 }
@@ -122,9 +129,9 @@ vector< Solution > champSolution::buildingFront(bool maxA, bool maxB)
 	if(front.empty()) front.push_back(*it);
 	if(!wouldBeDominated(front, *it, maxA, maxB)) //la solution it peut etre ajoutee au front
 	{
-	    front.push_back(*it);
+// 	    front.push_back(*it);
 	    //supprimer les solutions devenues faibles !
-	    front= supprAllWeaks(maxA, maxB);
+	    front= addSolSupprAllWeaks(front, (*it), maxA, maxB);
 	}
 	
     }

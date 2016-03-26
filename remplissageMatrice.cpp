@@ -54,7 +54,7 @@ void remplissageMatrice::affichage()
     }
 }
 
-double remplissageMatrice::evaluationCout(vector< int > villes_ordonnees)
+double remplissageMatrice::evaluationCout(vector< int > villes_ordonnees) const
 {
     double res= 0.0;
     for(unsigned int i= 0; i < villes_ordonnees.size()-1; ++i){

@@ -51,9 +51,14 @@ public:
     
     
     std::ostream& print(std::ostream& out) const;
+    //returns false if ch1 != ch2
+    bool diff_path(std::vector< int > ch) const;
     
     friend std::ostream& operator<<(std::ostream& out, const Chemin& c)
     { return c.print(out); }
+    
+    friend bool operator!=(const Chemin& ch1, const Chemin& ch2)
+    { return (ch1.diff_path(ch2.getChemin())); }
 };
 
 #endif // CHEMIN_H

@@ -213,6 +213,21 @@ Ville.s:
 .PHONY : Ville.s
 
 # target to build an object file
+algorithm.o:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/algorithm.o
+.PHONY : algorithm.o
+
+# target to preprocess a source file
+algorithm.i:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/algorithm.i
+.PHONY : algorithm.i
+
+# target to generate assembly for a file
+algorithm.s:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/algorithm.s
+.PHONY : algorithm.s
+
+# target to build an object file
 champSolution.o:
 	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/champSolution.o
 .PHONY : champSolution.o
@@ -241,6 +256,21 @@ chargementMegalopole.i:
 chargementMegalopole.s:
 	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/chargementMegalopole.s
 .PHONY : chargementMegalopole.s
+
+# target to build an object file
+ecritureFichier.o:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/ecritureFichier.o
+.PHONY : ecritureFichier.o
+
+# target to preprocess a source file
+ecritureFichier.i:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/ecritureFichier.i
+.PHONY : ecritureFichier.i
+
+# target to generate assembly for a file
+ecritureFichier.s:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/ecritureFichier.s
+.PHONY : ecritureFichier.s
 
 # target to build an object file
 main.o:
@@ -297,12 +327,18 @@ help:
 	@echo "... Ville.o"
 	@echo "... Ville.i"
 	@echo "... Ville.s"
+	@echo "... algorithm.o"
+	@echo "... algorithm.i"
+	@echo "... algorithm.s"
 	@echo "... champSolution.o"
 	@echo "... champSolution.i"
 	@echo "... champSolution.s"
 	@echo "... chargementMegalopole.o"
 	@echo "... chargementMegalopole.i"
 	@echo "... chargementMegalopole.s"
+	@echo "... ecritureFichier.o"
+	@echo "... ecritureFichier.i"
+	@echo "... ecritureFichier.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

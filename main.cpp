@@ -13,6 +13,8 @@
 #include "Chemin.h"
 #include "Solution.h"
 #include "champSolution.h"
+#include "ecritureFichier.h"
+#include "algorithm.h"
 
 using namespace std;
 
@@ -30,10 +32,9 @@ int main(int argc, char **argv) {
     Chemin testPath(tailleA);
     champSolution champ_solutions;
     
-    double coutCheminA= matriceDistanceA100.evaluationCout(testPath.getChemin());
-    double coutCheminB= matriceDistanceB100.evaluationCout(testPath.getChemin());
-    cout << "Solution (A ; B) = (" << coutCheminA << " ; " << coutCheminB << ") = " << coutCheminA+coutCheminB << endl;
-    
+    //generation 500 chemins aleatoires (chemin de base + permutation de 2 villes = new chemin)
+    double coutCheminA;
+    double coutCheminB;
     int nb_swap= 500;
     for(int i_ville1= 1; i_ville1 < tailleA; ++i_ville1){
 	for(int i_ville2= i_ville1+1; (i_ville2 < tailleA) && (i_ville2 < nb_swap); ++i_ville2){
@@ -45,13 +46,54 @@ int main(int argc, char **argv) {
 	}
     }
     
-    cout << "Champ Solutions Initial" << endl;
-    cout << champ_solutions << endl;
+    int maxA= 0, maxB= 0;
+    vector<Solution> all_solutions= champ_solutions.getSolutions();
+    vector<Solution> offlinePareto= champ_solutions.getFront(maxA, maxB);
+    vector<Solution> onlinePareto= champ_solutions.buildingFront(maxA, maxB);
+ 
     
-    vector<Solution> front_criteres= champ_solutions.getFront(1, 1);
+    /* Verification offline/online
     vector<Solution>::iterator it_c;
-    for(it_c= front_criteres.begin(); it_c != front_criteres.end(); ++it_c){
-	cout << "Solution frontale avec criteres : " << *it_c << endl;
+    for(it_c= offlinePareto.begin(); it_c != offlinePareto.end(); ++it_c){
+	cout << "Offline : " << *it_c << endl;
+    }
+    
+    cout << "************************************" << endl;
+    
+    for(it_c= onlinePareto.begin(); it_c != onlinePareto.end(); ++it_c){
+	cout << "Online : " << *it_c << endl;
+    }
+    */
+    
+    ecritureFichier allSolOffline("offline500_KroAB.txt", all_solutions);
+    ecritureFichier outputOfflinePareto("offlinePareto500_KroAB.txt", offlinePareto);
+    
+    ecritureFichier all_sol_online("online500_KroAB.txt", all_solutions);
+    ecritureFichier outputOnlinePareto("onlinePareto500_KroAB.txt", onlinePareto);
+    
+    //*****************************************
+    //tester des chemins avec une fonction de voisinage - utiliser matriceA100... (remplissageMatrice)
+    
+    Chemin voisin;
+    int nb_ite= 0, nb_voisins= 500, nb_sol= 0;
+    vector<Solution> all_sol= champ_solutions.getSolutions();
+    vector<Solution>::iterator parc_sol;
+    
+    while(voisin != testPath && nb_ite < nb_voisins){
+	cout << "iteration voisin : " << nb_ite << endl;
+	for(parc_sol= all_sol.begin(); parc_sol != all_sol.end(); ++parc_sol){
+	    //si une solution a un voisin ameliorant, on le prend en compte
+	    voisin= algorithm::voisinage(matriceDistanceA100, matriceDistanceB100, parc_sol->get_path());
+	    double cout_A= matriceDistanceA100.evaluationCout(voisin.getChemin());
+	    double cout_B= matriceDistanceB100.evaluationCout(voisin.getChemin());
+	    Solution sol_actuelle(cout_A, cout_B, voisin);
+	    
+	    champ_solutions.ajoutSolution(sol_actuelle);
+	    champ_solutions.buildingFront(maxA, maxB);
+// 	    cout << "iteration " << nb_ite << " solution interne : " << nb_sol << endl;
+	    ++nb_sol;
+	}
+	++nb_ite;
     }
     
     return 0;

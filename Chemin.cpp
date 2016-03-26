@@ -84,3 +84,12 @@ std::ostream& Chemin::print(std::ostream& out) const
     return out;
 }
 
+bool Chemin::diff_path(std::vector< int > ch) const
+{
+    bool res= false;
+    if(ch.size() != path.size()) return true;
+    for(unsigned int i= 0; i < ch.size(); ++i){
+	if(ch[i] != path[i]) return true;
+    }
+    return res;
+}

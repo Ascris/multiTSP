@@ -19,13 +19,14 @@ public:
     remplissageMatrice(const Megalopole& megalopolis);
     
     //getters & setters 
-    double getDistance(int i, int j) const { return distance[i][j]; };
+    double get_distance(int i, int j) const { return distance[i][j]; };
+    int get_nb_elem() const { return nb_elem; };
     
     //affichage de la matrice des distances
     void affichage();
     
     //fonctions de calcul sur la matrice
-    double evaluationCout(std::vector<int> villes_ordonnees);
+    double evaluationCout(std::vector<int> villes_ordonnees) const;
     
 };
 
