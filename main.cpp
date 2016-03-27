@@ -24,8 +24,8 @@ using namespace std;
 
 int main(int argc, char **argv) {
     
-    string fichierDataA= "../instances_TSP/kroA150.tsp";
-    string fichierDataB= "../instances_TSP/kroB150.tsp";
+    string fichierDataA= "../instances_TSP/kroA100.tsp";
+    string fichierDataB= "../instances_TSP/kroB100.tsp";
     Megalopole megalopolisA, megalopolisB;
     chargementMegalopole loadMegalopoleA(fichierDataA, megalopolisA);
     chargementMegalopole loadMegalopoleB(fichierDataB, megalopolisB);
@@ -79,9 +79,10 @@ int main(int argc, char **argv) {
     //*****************************************
     //tester des chemins avec une fonction de voisinage - utiliser matriceA100... (remplissageMatrice)
     
+    champSolution champ_PLS;
     vector<Solution> PLS;
     Chemin voisin;
-    int nb_ite= 0, nb_voisins= 200, nb_sol= 0;
+    int nb_ite= 0, nb_voisins= 500, nb_sol= 0;
     vector<Solution> front_offline= champ_solutions.getFront(maxA, maxB);
     vector<Solution>::iterator parc_sol;
     
@@ -102,6 +103,7 @@ int main(int argc, char **argv) {
 	    Solution nouveau_voisin(cout_A, cout_B, voisin);
 // 	    cout << cout_A << "---" << cout_B << endl;
 	    
+	    
 	    champ_solutions.ajoutSolution(nouveau_voisin);
 	    PLS= champ_solutions.buildingFront(maxA, maxB);
 // 	    cout << "iteration " << nb_ite << " solution interne : " << nb_sol << endl;
@@ -112,6 +114,7 @@ int main(int argc, char **argv) {
     chronoPLS.stop();
     cout << "temps ecoule pour " << nb_voisins << " voisins : " << chronoPLS.getDuration() << endl;
     
+    PLS= champ_PLS.getSolutions();
     ecritureFichier PLS_fic("PLS500_KroAB.txt", PLS);
     
     return 0;

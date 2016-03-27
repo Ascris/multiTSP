@@ -33,6 +33,8 @@ public:
     champSolution(const champSolution& ch);
     
     std::vector<Solution> getSolutions() const { return champ_solutions; };
+    void setSolutions(const std::vector<Solution>& sol){ champ_solutions= sol; };
+    
     
     //ajoute une nouvelle solution au champ de solutions
     void ajoutSolution(const Solution& solution);
