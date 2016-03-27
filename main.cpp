@@ -16,12 +16,16 @@
 #include "ecritureFichier.h"
 #include "algorithm.h"
 
+//chrono
+#include "ChronoCHARLOT.hpp"
+
+
 using namespace std;
 
 int main(int argc, char **argv) {
     
-    string fichierDataA= "../instances_TSP/kroA100.tsp";
-    string fichierDataB= "../instances_TSP/kroB100.tsp";
+    string fichierDataA= "../instances_TSP/kroA150.tsp";
+    string fichierDataB= "../instances_TSP/kroB150.tsp";
     Megalopole megalopolisA, megalopolisB;
     chargementMegalopole loadMegalopoleA(fichierDataA, megalopolisA);
     chargementMegalopole loadMegalopoleB(fichierDataB, megalopolisB);
@@ -50,9 +54,9 @@ int main(int argc, char **argv) {
     vector<Solution> all_solutions= champ_solutions.getSolutions();
     vector<Solution> offlinePareto= champ_solutions.getFront(maxA, maxB);
     vector<Solution> onlinePareto= champ_solutions.buildingFront(maxA, maxB);
- 
     
-    /* Verification offline/online
+    /*
+    //Verification offline/online
     vector<Solution>::iterator it_c;
     for(it_c= offlinePareto.begin(); it_c != offlinePareto.end(); ++it_c){
 	cout << "Offline : " << *it_c << endl;
@@ -64,37 +68,51 @@ int main(int argc, char **argv) {
 	cout << "Online : " << *it_c << endl;
     }
     */
+    ecritureFichier allSolOffline("allSol500_KroAB.txt", all_solutions);
     
-    ecritureFichier allSolOffline("offline500_KroAB.txt", all_solutions);
+//     ecritureFichier allSolOffline("offline500_KroAB.txt", all_solutions);
     ecritureFichier outputOfflinePareto("offlinePareto500_KroAB.txt", offlinePareto);
     
-    ecritureFichier all_sol_online("online500_KroAB.txt", all_solutions);
+//     ecritureFichier all_sol_online("online500_KroAB.txt", all_solutions);
     ecritureFichier outputOnlinePareto("onlinePareto500_KroAB.txt", onlinePareto);
     
     //*****************************************
     //tester des chemins avec une fonction de voisinage - utiliser matriceA100... (remplissageMatrice)
     
+    vector<Solution> PLS;
     Chemin voisin;
-    int nb_ite= 0, nb_voisins= 500, nb_sol= 0;
-    vector<Solution> all_sol= champ_solutions.getSolutions();
+    int nb_ite= 0, nb_voisins= 200, nb_sol= 0;
+    vector<Solution> front_offline= champ_solutions.getFront(maxA, maxB);
     vector<Solution>::iterator parc_sol;
     
-    while(voisin != testPath && nb_ite < nb_voisins){
+    
+    Chrono chronoPLS;
+    chronoPLS.start();
+    
+//     while(voisin != testPath && nb_ite < nb_voisins){
+	while(nb_ite < nb_voisins){
 	cout << "iteration voisin : " << nb_ite << endl;
-	for(parc_sol= all_sol.begin(); parc_sol != all_sol.end(); ++parc_sol){
+	nb_sol= 0;
+	for(parc_sol= front_offline.begin(); parc_sol != front_offline.end(); ++parc_sol){
 	    //si une solution a un voisin ameliorant, on le prend en compte
 	    voisin= algorithm::voisinage(matriceDistanceA100, matriceDistanceB100, parc_sol->get_path());
+	    if(!(voisin != parc_sol->get_path())) break;
 	    double cout_A= matriceDistanceA100.evaluationCout(voisin.getChemin());
 	    double cout_B= matriceDistanceB100.evaluationCout(voisin.getChemin());
-	    Solution sol_actuelle(cout_A, cout_B, voisin);
+	    Solution nouveau_voisin(cout_A, cout_B, voisin);
+// 	    cout << cout_A << "---" << cout_B << endl;
 	    
-	    champ_solutions.ajoutSolution(sol_actuelle);
-	    champ_solutions.buildingFront(maxA, maxB);
+	    champ_solutions.ajoutSolution(nouveau_voisin);
+	    PLS= champ_solutions.buildingFront(maxA, maxB);
 // 	    cout << "iteration " << nb_ite << " solution interne : " << nb_sol << endl;
 	    ++nb_sol;
 	}
 	++nb_ite;
     }
+    chronoPLS.stop();
+    cout << "temps ecoule pour " << nb_voisins << " voisins : " << chronoPLS.getDuration() << endl;
+    
+    ecritureFichier PLS_fic("PLS500_KroAB.txt", PLS);
     
     return 0;
 }

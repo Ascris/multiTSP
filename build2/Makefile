@@ -168,6 +168,21 @@ Chemin.s:
 .PHONY : Chemin.s
 
 # target to build an object file
+ChronoCHARLOT.o:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/ChronoCHARLOT.o
+.PHONY : ChronoCHARLOT.o
+
+# target to preprocess a source file
+ChronoCHARLOT.i:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/ChronoCHARLOT.i
+.PHONY : ChronoCHARLOT.i
+
+# target to generate assembly for a file
+ChronoCHARLOT.s:
+	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/ChronoCHARLOT.s
+.PHONY : ChronoCHARLOT.s
+
+# target to build an object file
 Megalopole.o:
 	$(MAKE) -f CMakeFiles/multitsp.dir/build.make CMakeFiles/multitsp.dir/Megalopole.o
 .PHONY : Megalopole.o
@@ -318,6 +333,9 @@ help:
 	@echo "... Chemin.o"
 	@echo "... Chemin.i"
 	@echo "... Chemin.s"
+	@echo "... ChronoCHARLOT.o"
+	@echo "... ChronoCHARLOT.i"
+	@echo "... ChronoCHARLOT.s"
 	@echo "... Megalopole.o"
 	@echo "... Megalopole.i"
 	@echo "... Megalopole.s"

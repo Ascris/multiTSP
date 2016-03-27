@@ -4,6 +4,9 @@
 CMakeFiles/multitsp.dir/Chemin.o
  /home/etudiant/git/multiTSP/Chemin.cpp
  /home/etudiant/git/multiTSP/Chemin.h
+CMakeFiles/multitsp.dir/ChronoCHARLOT.o
+ /home/etudiant/git/multiTSP/ChronoCHARLOT.cpp
+ /home/etudiant/git/multiTSP/ChronoCHARLOT.hpp
 CMakeFiles/multitsp.dir/Megalopole.o
  /home/etudiant/git/multiTSP/Megalopole.cpp
  /home/etudiant/git/multiTSP/Megalopole.h
@@ -39,6 +42,7 @@ CMakeFiles/multitsp.dir/ecritureFichier.o
  /home/etudiant/git/multiTSP/ecritureFichier.h
 CMakeFiles/multitsp.dir/main.o
  /home/etudiant/git/multiTSP/Chemin.h
+ /home/etudiant/git/multiTSP/ChronoCHARLOT.hpp
  /home/etudiant/git/multiTSP/Megalopole.h
  /home/etudiant/git/multiTSP/Solution.h
  /home/etudiant/git/multiTSP/Ville.h

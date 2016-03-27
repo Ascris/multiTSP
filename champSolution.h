@@ -30,6 +30,7 @@ private:
     
 public:
     champSolution();
+    champSolution(const champSolution& ch);
     
     std::vector<Solution> getSolutions() const { return champ_solutions; };
     

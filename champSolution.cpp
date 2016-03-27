@@ -24,6 +24,11 @@ champSolution::champSolution()
     
 }
 
+champSolution::champSolution(const champSolution& ch)
+{
+    champ_solutions= ch.getSolutions();
+}
+
 void champSolution::ajoutSolution(const Solution& solution)
 {
     champ_solutions.push_back(solution);

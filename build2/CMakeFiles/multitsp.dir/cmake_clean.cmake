@@ -1,4 +1,5 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/multitsp.dir/ChronoCHARLOT.o"
   "CMakeFiles/multitsp.dir/algorithm.o"
   "CMakeFiles/multitsp.dir/ecritureFichier.o"
   "CMakeFiles/multitsp.dir/champSolution.o"

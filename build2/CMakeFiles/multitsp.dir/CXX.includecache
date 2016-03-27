@@ -18,6 +18,16 @@ time.h
 algorithm
 -
 
+/home/etudiant/git/multiTSP/ChronoCHARLOT.hpp
+vector
+-
+string
+-
+chrono
+-
+ctime
+-
+
 /home/etudiant/git/multiTSP/Megalopole.h
 vector
 -
@@ -107,6 +117,8 @@ ecritureFichier.h
 /home/etudiant/git/multiTSP/ecritureFichier.h
 algorithm.h
 /home/etudiant/git/multiTSP/algorithm.h
+ChronoCHARLOT.hpp
+/home/etudiant/git/multiTSP/ChronoCHARLOT.hpp
 
 /home/etudiant/git/multiTSP/remplissageMatrice.h
 stdio.h

@@ -17,7 +17,7 @@ Générer des voisins :
 graphique gnuplot
 	ex : plot fic1 fic2
 
-Création fichier plot:
+Création fichier "filtre.plot":
 	set term jpeg
 	set output 'filtre500KroAB.jpg'
 	plot 'offline500_KroAB.txt' offlinePareto500_KroAB.txt

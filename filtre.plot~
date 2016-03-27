@@ -1,3 +1,3 @@
 set term jpeg
-set output 'offline500_KroAB.jpeg'
-plot 'build2/offline500_KroAB.txt', 'build2/offlinePareto500_KroAB.txt'
+set output 'pls_500_KroAB.jpeg'
+plot 'build2/offlinePareto500_KroAB.txt', 'build2/onlinePareto500_KroAB.txt', 'build2/PLS500_KroAB.txt'

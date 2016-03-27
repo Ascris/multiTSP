@@ -22,7 +22,7 @@ void Megalopole::ajout_ville(Ville persepolis)
 
 void Megalopole::retirer_ville(int id_ville)
 {
-
+    
 }
 
 void Megalopole::permutation_villes(int id_ville_1, int id_ville_2)
