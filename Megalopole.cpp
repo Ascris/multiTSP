@@ -32,7 +32,7 @@ void Megalopole::permutation_villes(int id_ville_1, int id_ville_2)
 
 std::ostream& Megalopole::print(std::ostream& out) const
 {
-    for(int i= 0; i<villes.size(); ++i){
+    for(unsigned int i= 0; i<villes.size(); ++i){
 	out << villes[i] << std::endl;
     }
     return out;

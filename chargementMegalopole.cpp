@@ -31,9 +31,7 @@ chargementMegalopole::chargementMegalopole(std::string fichierData, Megalopole& 
     if(fichier)
     {
 	string ligne;
-	int nbLignes = 0;
 	bool get_cities= false;
-	int taille_instance= 0;
 	while(getline(fichier, ligne)){
 	    int tailleLigne = 0;
 	    istringstream line(ligne);
@@ -44,18 +42,7 @@ chargementMegalopole::chargementMegalopole(std::string fichierData, Megalopole& 
 		++tailleLigne;
 	    }
 	    
-	    if(2 == tailleLigne){
-		bool dimension_ok= false;
-		istringstream ligne_dim(ligne);
-		string dim;
-		while(ligne_dim >> dim){
-		    if(dimension_ok){
-			taille_instance= stoi(mot);
-			dimension_ok= false;
-		    }
-		    if("DIMENSION:" == dim) dimension_ok= true;
-		}
-	    } else if (3 == tailleLigne && get_cities)
+	    if (3 == tailleLigne && get_cities)
 	    {
 		int nb_ville, x, y, nbMots=0;
 		
@@ -68,11 +55,9 @@ chargementMegalopole::chargementMegalopole(std::string fichierData, Megalopole& 
 		    ++nbMots;
 		}
 		
-		
 		//creation ville et ajout dans la liste
 		Ville persepolis(nb_ville, x, y);
 		megalopolis.ajout_ville(persepolis);
-	    
 	    }
 	}
     } else 

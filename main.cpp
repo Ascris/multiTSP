@@ -82,7 +82,7 @@ int main(int argc, char **argv) {
     champSolution champ_PLS;
     vector<Solution> PLS;
     Chemin voisin;
-    int nb_ite= 0, nb_voisins= 500, nb_sol= 0;
+    int nb_ite= 0, nb_voisins= 50, nb_sol= 0;
     vector<Solution> front_offline= champ_solutions.getFront(maxA, maxB);
     vector<Solution>::iterator parc_sol;
     

@@ -1,0 +1,7 @@
+Pour lancer l'application :
+	- donner les droits au launch.sh (chmod +x launch.sh)
+	- lancer le script : ./launch.sh
+
+Pour utiliser des fichiers differents, modifier le nom des fichiers d'instance intéressés dans le main.cpp.
+
+Pour faire tourner plusieurs fois l'algo PLS, modifier la variable "nb_voisins" qui cherche toujours un voisin améliorant.
